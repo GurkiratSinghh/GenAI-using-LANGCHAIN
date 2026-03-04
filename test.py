@@ -1,12 +1,10 @@
-from huggingface_hub import InferenceClient
+import google.generativeai as genai
 import os
+from dotenv import load_dotenv
 
-client = InferenceClient(
-    model="HuggingFaceH4/zephyr-7b-beta",
-    token=os.getenv("HF_TOKEN")
-)
+load_dotenv()   # <-- THIS WAS MISSING
 
-print(client.chat_completion(
-    messages=[{"role": "user", "content": "Hello"}],
-    max_tokens=50
-))
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+for m in genai.list_models():
+    print(m.name)
