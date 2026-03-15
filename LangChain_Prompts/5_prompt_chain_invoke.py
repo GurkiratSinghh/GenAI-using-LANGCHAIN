@@ -5,7 +5,7 @@ from langchain_core.prompts import PromptTemplate,load_prompt
 
 load_dotenv()
 endpoint = HuggingFaceEndpoint(
-    repo_id="mistralai/Mistral-7B-Instruct-v0.2",
+    repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
     task="conversational"
 )
 
@@ -34,8 +34,9 @@ length_input = st.selectbox(
 )
 
 #template
-template=load_prompt("LangChain_Prompts/template.json")
+template=load_prompt("LangChain_Prompts/prompt.json")
 #fill the plceholder
+'''
 prompt = template.invoke({
     "paper_input": paper_input,
     "style_input": style_input,
@@ -45,3 +46,19 @@ prompt = template.invoke({
 if st.button("Summarize"):
     result=chat.invoke(prompt)
     st.write(result.content)
+'''
+# here above 2 times invoke is used 
+# 1st invoke is used to fill the plceholder
+# 2nd invoke is used to invoke the model
+
+# using chain
+if st.button("Summarize"):
+    chain=template|chat
+    result=chain.invoke({
+        "paper_input": paper_input,
+        "style_input": style_input,
+        "length_input": length_input
+    })
+    st.write(result.content)
+
+

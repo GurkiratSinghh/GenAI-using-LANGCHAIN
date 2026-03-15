@@ -3,10 +3,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Step 1: Create endpoint (must still say conversational)
+# Step 1: Create endpoint
 endpoint = HuggingFaceEndpoint(
-    repo_id="mistralai/Mistral-7B-Instruct-v0.2",
-    task="conversational"
+    repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
 )
 
 # Step 2: Wrap into chat model

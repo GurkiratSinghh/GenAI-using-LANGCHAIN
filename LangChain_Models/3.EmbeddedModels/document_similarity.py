@@ -16,6 +16,7 @@ documents=["Virat Kohli is an Indian cricketer known for his aggressive batting 
 
 query="Tell me about Virat Kohli"
 
+
 docs_embeddings=embeddings.embed_documents(documents)
 query_embedding=embeddings.embed_query(query)
 

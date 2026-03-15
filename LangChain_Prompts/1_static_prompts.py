@@ -4,7 +4,7 @@ import streamlit as st
 
 load_dotenv()
 endpoint = HuggingFaceEndpoint(
-    repo_id="mistralai/Mistral-7B-Instruct-v0.2",
+    repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
     task="conversational"
 )
 

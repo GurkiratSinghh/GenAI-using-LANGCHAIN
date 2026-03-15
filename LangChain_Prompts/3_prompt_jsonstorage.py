@@ -1,4 +1,7 @@
 from langchain_core.prompts import PromptTemplate
+
+
+#template
 template=PromptTemplate(
     template="""Please summarize the research paper titled "{paper_input}" with the following specifications:
 
@@ -19,4 +22,5 @@ Ensure the summary is clear, accurate, and aligned with the provided style and l
     input_variables=["paper_input", "style_input", "length_input"],validate_template=True  
 )
 
-template.save("template.json")
+#save the prompt in json file
+template.save("d:\Langchain\LangChain_Prompts\prompt.json")
